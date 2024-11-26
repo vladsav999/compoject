@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Вар3</title>
     <style>
-        /* Пример стиля для элементов формы */
         select {
             width: 80%;
             padding: 12px 20px;
@@ -92,17 +91,9 @@
         button{
             margin-right: 10px;
         }
-
     </style>
 </head>
 <body>
-    <nav class="main">
-        <a href="" class="main_el">ПРОФНАСТИЛ</a>
-        <a href="" class="main_el">ДЕРЕВО</a>
-        <a href="" class="main_el">МЕТАЛЛИЧЕСКИЙ ШТАКЕТНИК</a>
-        <a href="" class="main_el">СЕТКА РАБИЦА</a>
-        <a href="" class="main_el">ОТКАТНЫЕ ВОРОТА</a>
-    </nav>
     <div class="container">
         <form action="/order" method="post">
             <div class="b1">
@@ -163,10 +154,6 @@
             </div>
 
         </div>
-            <div class="but">
-                <button onclick="ras()">Расcчитать</button>
-                <button type="reset" class="button">ОЧИСТИТЬ</button>
-            </div>
             <script>
                 function ras() {
                     const ТолщинаПокрытия = parseFloat(document.getElementById('Толщина_покрытия').value) || 0;
@@ -181,13 +168,17 @@
 
                     const ЦенаПокрытий = ОбщаяДлина * ТолщинаПокрытия * 150 * ВысотаЗабора * Покраска
                    // alert('ЦенаПокрытий: ' + ЦенаПокрытий + ' руб.');
-                    const result = ЦенаПокрытий + (ТолщинаСтолба * 100  *  ОбщаяДлина / 5) + КоличествоКалиток * 1400 + КоличествоВорот * ШиринаВорот * 7400;
+                    const result = ЦенаПокрытий + (ТолщинаСтолба * 100  *  ОбщаяДлина / 5) + КоличествоКалиток * 1400 + КоличествоВорот * ШиринаВорот * 3400 * 7400 + Лаги_кол * 1200 ;
 
                     //alert('С вас: ' + result + ' руб.');
                     document.getElementById('Сумма').value = result;
                 }
             </script>
         </form>
+        <div class="but">
+            <button onclick="ras()">Расcчитать</button>
+
+        </div>
     </div>
 </body>
 </html>
